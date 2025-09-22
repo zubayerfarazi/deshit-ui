@@ -130,21 +130,23 @@ const Footer = () => {
       </div>
 
       <div className="py-4 mt-8 text-sm flex flex-col md:flex-row items-center justify-between">
-        <p>© 2025 DeshiT-BD.ltd</p>
-        <div className="flex gap-1 my-2 md:my-0">
-          <Link href="#" className="text-[var(--primary-color)]">
-            Sitemap
-          </Link>
-          <span>|</span>
-          <Link href="#" className="text-[var(--primary-color)]">
-            Privacy Policy
-          </Link>
-        </div>
-        <div className="flex gap-2">
-          <p>Download Brochure:</p>
-          <Link href="#" className="text-[var(--primary-color)]">
-            English
-          </Link>
+        <div className="flex items-center gap-30">
+          <p>© 2025 DeshiT-BD.ltd</p>
+          <div className="flex gap-1 my-2 md:my-0">
+            <Link href="#" className="text-[var(--primary-color)]">
+              Sitemap
+            </Link>
+            <span>|</span>
+            <Link href="#" className="text-[var(--primary-color)]">
+              Privacy Policy
+            </Link>
+          </div>
+          <div className="flex gap-2">
+            <p>Download Brochure:</p>
+            <Link href="#" className="text-[var(--primary-color)]">
+              English
+            </Link>
+          </div>
         </div>
         <p>info@deshit-bd.com</p>
       </div>
