@@ -43,7 +43,11 @@ const page = () => {
       </div>
 
       <PartnershipSection />
-      <SoftwareCompany />
+
+      <div className={sectionClass}>
+        <SoftwareCompany />
+      </div>
+
       <SpecializeSection />
     </>
   );

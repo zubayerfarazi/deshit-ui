@@ -44,7 +44,7 @@ const Testimonial = () => {
             <div>
               <p className="text-black font-medium">
                 Bodilija Abelsson,{" "}
-                <span className="text-orange-500">
+                <span className="text-[var(--primary-color)]">
                   Founder of SimpleSignup.se
                 </span>
               </p>
@@ -53,7 +53,7 @@ const Testimonial = () => {
 
           {/* Pagination Dots */}
           <div className="flex justify-center space-x-2">
-            <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-[var(--primary-color)] rounded-full"></div>
             <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
             <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
           </div>

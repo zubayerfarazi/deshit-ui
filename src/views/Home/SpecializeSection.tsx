@@ -1,47 +1,99 @@
 import SpecializeCard from "@/component/card/SpecializeCard";
 import React from "react";
-import { FaCloud, FaCode, FaMobileAlt } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+import {
+  FaCalculator,
+  FaCloud,
+  FaCode,
+  FaGlobe,
+  FaMobileAlt,
+  FaShoppingCart,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
+import { GiGraduateCap } from "react-icons/gi";
+import { IoMdSettings } from "react-icons/io";
+import { PiNoteFill } from "react-icons/pi";
 
 const specializations = [
   {
-    icon: <FaCode />,
-    title: "Web Development",
+    icon: <FaStar />,
+    title: "Portal",
     paragraph:
-      "We build scalable and responsive websites using the latest technologies.",
+      "Get Your Customized Portal to Engage, Collaborate, and Navigate the Digital Landscape.",
   },
   {
-    icon: <FaMobileAlt />,
-    title: "Mobile Apps",
+    icon: <FaShoppingCart />,
+    title: "E-Commerce",
     paragraph:
-      "Custom mobile applications for iOS and Android tailored to your needs.",
+      "Showcase your Digital Storefronts with dynamic E-commerce Development Solutions for Lasting Success.",
   },
+  {
+    icon: <FaGlobe />,
+    title: "Brand Website",
+    paragraph:
+      "Craft a Dynamic Website that articulates your vision and captivates your audience, amplifying your brand's unique identity.",
+  },
+
   {
     icon: <FaCloud />,
-    title: "Cloud Solutions",
+    title: "SaaS",
     paragraph:
-      "Deploy your infrastructure safely and efficiently on the cloud.",
+      "Step into the future of digital innovation with SaaS. We're here to turn your ideas into reality through custom SaaS dev.",
+  },
+  {
+    icon: <FaUsers />,
+    title: "CRM",
+    paragraph:
+      "We specialize in crafting robust CRM solutions meticulously designed to enhance and elevate every aspect of your customer interactions.",
+  },
+  {
+    icon: <IoMdSettings />,
+    title: "ERP",
+    paragraph:
+      "Design, Develop, and Deploy Customized ERP Solutions Tailored to Streamline and Maximize Efficiency in Your Business's Resource Planning.",
+  },
+  {
+    icon: <FaCalculator />,
+    title: "POS",
+    paragraph:
+      "Innovate at checkout with a tailored POS system designed to facilitate swift and secure transactions.",
+  },
+  {
+    icon: <PiNoteFill />,
+    title: "CMS",
+    paragraph:
+      "We specialize in customized CMS development to control, updates, and amplification of online content.",
+  },
+  {
+    icon: <GiGraduateCap />,
+    title: "LMS",
+    paragraph:
+      "We are dedicated to crafting bespoke Learning Management Systems (LMS) that empower education.",
   },
 ];
 
 const SpecializeSection = () => {
   return (
-    <div>
-      <p>We Specialize</p>
-      <p>
-        We specialize in providing on-demand software solutions across various
-        sectors. Our expertise covers a wide range of domains, ensuring tailored
-        solutions to meet diverse business needs.
-      </p>
+    <div className="bg-gray-100">
+      <div className="container max-w-screen-xl mx-auto flex flex-col gap-4 px-4 py-10">
+        <p className="text-2xl font-semibold text-center">We Specialize</p>
+        <p className="text-gray-700 max-w-2xl text-center mx-auto mt-4">
+          We specialize in providing on-demand software solutions across various
+          sectors. Our expertise covers a wide range of domains, ensuring
+          tailored solutions to meet diverse business needs.
+        </p>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {specializations.map((item, index) => (
-          <SpecializeCard
-            key={index}
-            icon={item.icon}
-            title={item.title}
-            paragraph={item.paragraph}
-          />
-        ))}
+        <div className="grid md:grid-cols-3 gap-8 mt-4">
+          {specializations.map((item, index) => (
+            <SpecializeCard
+              key={index}
+              icon={item.icon}
+              title={item.title}
+              paragraph={item.paragraph}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
