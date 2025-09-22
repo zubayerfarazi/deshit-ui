@@ -6,6 +6,7 @@ import PartnershipSection from "@/views/Home/PartnershipSection";
 import SoftwareCompany from "@/views/Home/SoftwareCompany";
 import SpecializeSection from "@/views/Home/SpecializeSection";
 import OurClient from "@/views/Home/OurClient";
+import SoftwareService from "@/views/Home/SoftwareService";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -27,6 +28,8 @@ const page = () => {
       <div className={sectionClass}>
         <OurClient />
       </div>
+
+      <SoftwareService />
 
       <PartnershipSection />
       <SoftwareCompany />
