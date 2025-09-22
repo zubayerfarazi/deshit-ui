@@ -28,7 +28,7 @@ delivering top-notch results tailored to your on-demand needs.`,
 
 const ServiceSection = () => {
   return (
-    <div className="container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-4 grid md:grid-cols-3 gap-6 ">
+    <div className="flex flex-wrap gap-10 my-20">
       {services.map((service, index) => (
         <ServiceCard
           key={index}

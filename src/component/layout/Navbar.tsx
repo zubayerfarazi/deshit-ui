@@ -21,7 +21,7 @@ export default function Navbar() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <div className="container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-4">
+    <div className="container max-w-screen-xl mx-auto px-4 py-4">
       <nav className="flex gap-20 items-center">
         <div className="flex items-center">
           <Link href="/">
