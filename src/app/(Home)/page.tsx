@@ -10,6 +10,7 @@ import SoftwareService from "@/views/Home/SoftwareService";
 import SoftwareTechnology from "@/views/Home/SoftwareTechnology";
 import WhyChooseUs from "@/views/Home/WhyChooseUs";
 import Award from "@/views/Home/Award";
+import Testimonial from "@/views/Home/Testimonial";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -38,6 +39,7 @@ const page = () => {
         <SoftwareTechnology />
         <WhyChooseUs />
         <Award />
+        <Testimonial />
       </div>
 
       <PartnershipSection />
