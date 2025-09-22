@@ -11,6 +11,7 @@ import SoftwareTechnology from "@/views/Home/SoftwareTechnology";
 import WhyChooseUs from "@/views/Home/WhyChooseUs";
 import Award from "@/views/Home/Award";
 import Testimonial from "@/views/Home/Testimonial";
+import Portfolio from "@/views/Home/Portfolio";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -49,6 +50,10 @@ const page = () => {
       </div>
 
       <SpecializeSection />
+
+      <div className={sectionClass}>
+        <Portfolio />
+      </div>
     </>
   );
 };
