@@ -9,6 +9,7 @@ import OurClient from "@/views/Home/OurClient";
 import SoftwareService from "@/views/Home/SoftwareService";
 import SoftwareTechnology from "@/views/Home/SoftwareTechnology";
 import WhyChooseUs from "@/views/Home/WhyChooseUs";
+import Award from "@/views/Home/Award";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -36,6 +37,7 @@ const page = () => {
       <div className={sectionClass}>
         <SoftwareTechnology />
         <WhyChooseUs />
+        <Award />
       </div>
 
       <PartnershipSection />
