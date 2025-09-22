@@ -7,6 +7,7 @@ import SoftwareCompany from "@/views/Home/SoftwareCompany";
 import SpecializeSection from "@/views/Home/SpecializeSection";
 import OurClient from "@/views/Home/OurClient";
 import SoftwareService from "@/views/Home/SoftwareService";
+import SoftwareTechnology from "@/views/Home/SoftwareTechnology";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -30,6 +31,10 @@ const page = () => {
       </div>
 
       <SoftwareService />
+
+      <div className={sectionClass}>
+        <SoftwareTechnology />
+      </div>
 
       <PartnershipSection />
       <SoftwareCompany />

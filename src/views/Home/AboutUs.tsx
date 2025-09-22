@@ -6,7 +6,6 @@ import {
   FaHourglassHalf,
   FaUserSecret,
 } from "react-icons/fa";
-import { GiSandsOfTime } from "react-icons/gi";
 
 const AboutUs = () => {
   return (
