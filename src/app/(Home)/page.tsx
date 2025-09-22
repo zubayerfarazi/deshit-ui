@@ -13,6 +13,7 @@ import Award from "@/views/Home/Award";
 import Testimonial from "@/views/Home/Testimonial";
 import Portfolio from "@/views/Home/Portfolio";
 import Contact from "@/views/Home/Contact";
+import Blog from "@/views/Home/Blog";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -54,6 +55,7 @@ const page = () => {
 
       <div className={sectionClass}>
         <Portfolio />
+        <Blog />
       </div>
 
       <Contact />
