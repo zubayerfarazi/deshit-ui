@@ -8,6 +8,7 @@ import SpecializeSection from "@/views/Home/SpecializeSection";
 import OurClient from "@/views/Home/OurClient";
 import SoftwareService from "@/views/Home/SoftwareService";
 import SoftwareTechnology from "@/views/Home/SoftwareTechnology";
+import WhyChooseUs from "@/views/Home/WhyChooseUs";
 
 const sectionClass = "container max-w-screen-xl mx-auto px-4";
 
@@ -34,6 +35,7 @@ const page = () => {
 
       <div className={sectionClass}>
         <SoftwareTechnology />
+        <WhyChooseUs />
       </div>
 
       <PartnershipSection />
