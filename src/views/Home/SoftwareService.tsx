@@ -1,5 +1,8 @@
+"use client";
+
 import SoftwareServiceCard from "@/component/card/SoftwareServiceCard";
 import React from "react";
+import { motion, Variants } from "framer-motion";
 
 const services = [
   {
@@ -34,30 +37,65 @@ const services = [
   },
 ];
 
+// Container for staggered animation
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+// Card animation
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 20, mass: 0.5 },
+  },
+};
+
 const SoftwareService = () => {
   return (
     <div className="bg-gray-100">
       <div className="container max-w-screen-xl mx-auto px-4 py-10">
-        <div className="flex items-center gap-20">
-          <p className="text-3xl font-bold max-w-sm">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20">
+          <motion.p
+            className="text-3xl font-bold max-w-sm"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             Customer Enterprise Software Development Services
-          </p>
-          <p className="max-w-md">
+          </motion.p>
+          <motion.p
+            className="max-w-md"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             We prioritize cultivating lasting business partnerships as your
             trusted software development partner
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+        >
           {services.map((service, index) => (
-            <SoftwareServiceCard
-              key={index}
-              imageSrc={service.imageSrc}
-              title={service.title}
-              description={service.description}
-            />
+            <motion.div key={index} variants={cardVariants}>
+              <SoftwareServiceCard
+                imageSrc={service.imageSrc}
+                title={service.title}
+                description={service.description}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

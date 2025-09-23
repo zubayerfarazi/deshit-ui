@@ -26,7 +26,7 @@ const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15, // cards animate one after another
+      staggerChildren: 0.15,
     },
   },
 };
@@ -38,7 +38,7 @@ const cardVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring", // smoother, natural motion
+      type: "spring",
       stiffness: 120,
       damping: 20,
       mass: 0.5,
