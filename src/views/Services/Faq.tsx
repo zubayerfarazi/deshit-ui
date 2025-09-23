@@ -4,25 +4,205 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import Button from "@/component/ui/Button";
 
 const faqs = [
   {
-    question: "What services do you provide?",
+    question:
+      "I have a web application and I would like to check for security vulnerabilities. Is it possible to get that information?",
     answer:
       "We provide custom software development, web & mobile app development, SaaS solutions, ERP/CRM systems, and more.",
   },
   {
-    question: "How long does a typical project take?",
+    question:
+      "I have a project idea, but I’m not an engineer. Would you please cooperate with the development of this project?",
     answer:
       "Project duration depends on scope and complexity. Small projects can take a few weeks, while larger ones may take several months.",
   },
   {
-    question: "Do you provide post-launch support?",
+    question: "What is the time difference?",
     answer:
       "Yes! We provide maintenance, updates, and technical support after launch to ensure your software runs smoothly.",
   },
   {
-    question: "Can you work with my existing team?",
+    question: "How do you manage projects?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Do you offer maintenance and support after development?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What kind of development process do you follow?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question:
+      "What kind of organization is DeshIT-BD? What type of work do you do?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Where are you located?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Who are your clients?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is your policy on copyright and intellectual property?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question:
+      "How do you assure confidentiality and safeguard my intellectual property?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Are you a member of any industry bodies?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is the minimum project size that you accept?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Do you have any references that I can call?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How large is your company?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is the mix of personnel that would work on the project?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How do you recruit and hire your developers?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is the quality of people you employ?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Can you meet/work onsite?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Which development methodology do you use?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is your QA process?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How do you deal with urgent bug fixing?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How would you keep us aware of your progress?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Who will be my point of contact?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Will you sign my NDA?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Have you ever failed on a project?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Do you provide post-development maintenance?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How can I request for a change?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Do you do software testing, verifications, and QA services?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Can we do a pilot project?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What control do I have over the project?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What happens when you are done?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What are your payment terms? Do I need to pay any advance?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "What is the timeline to get started on a new project?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How long does a software project take?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Which time zone are you in?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "How many hours do you work per week?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "Who owns the right of the code?",
+    answer:
+      "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
+  },
+  {
+    question: "I am feeling insecure to share my idea. What if you steal it?",
     answer:
       "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
   },
@@ -50,7 +230,6 @@ const Faq = () => {
 
   return (
     <div className="my-20 container mx-auto px-4">
-      {/* Top Heading + Button */}
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -60,12 +239,11 @@ const Faq = () => {
         <p className="text-4xl font-semibold">
           Get in Touch with Us for a Free Consultation Session
         </p>
-        <button className="bg-[var(--primary-color)] text-white mt-8 px-4 py-2 rounded-md cursor-pointer">
-          Book a Free Consultation
-        </button>
+        <div className="flex items-center justify-center">
+          <Button>Book a Free Consultation</Button>
+        </div>
       </motion.div>
 
-      {/* Two-column Section: Image + Text / Form */}
       <motion.div
         className="grid md:grid-cols-2 gap-10"
         initial="hidden"
@@ -73,7 +251,6 @@ const Faq = () => {
         viewport={{ once: false, amount: 0.3 }}
         variants={containerVariants}
       >
-        {/* Left Side: Image, Title, Paragraph, Icon */}
         <motion.div variants={itemVariants}>
           <Image
             src="/get-in-touch.png"
@@ -104,7 +281,6 @@ const Faq = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Form */}
         <motion.div
           className="bg-gray-100 px-4 py-6 mx-auto rounded-md flex flex-col items-start justify-center w-full"
           variants={itemVariants}
@@ -153,13 +329,11 @@ const Faq = () => {
         </motion.div>
       </motion.div>
 
-      {/* FAQ Section */}
       <motion.div
         className="mt-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        variants={containerVariants}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
         <p className="text-xl font-semibold text-center">
           Frequently Asked Questions
