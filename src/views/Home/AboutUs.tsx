@@ -80,7 +80,7 @@ const AboutUs = () => {
             <Image
               src="/aboutUs.png"
               alt="about us"
-              width={600}
+              width={500}
               height={100}
               className="object-contain"
             />

@@ -13,10 +13,10 @@ const WhyChooseUs = () => {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setIsAnimated(true);
-          observer.disconnect(); // animate only once
+          observer.disconnect(); 
         }
       },
-      { threshold: 0.3 } // trigger when 30% of the section is visible
+      { threshold: 0.3 } 
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -27,7 +27,6 @@ const WhyChooseUs = () => {
   return (
     <div ref={sectionRef} className="py-20">
       <div className="grid lg:grid-cols-2 gap-4">
-        {/* Left Text */}
         <div>
           <p className="text-2xl font-semibold">Why Choose Us</p>
 
@@ -44,10 +43,8 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-        {/* Right Animated Circle */}
         <div className="flex flex-col items-center justify-center p-8">
-          <div className="relative w-80 h-80 mb-8">
-            {/* Circle */}
+          <div className="relative w-70 h-70 mb-8">
             <svg
               className="absolute inset-0 w-full h-full transform -rotate-90"
               viewBox="0 0 100 100"

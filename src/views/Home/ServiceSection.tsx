@@ -48,23 +48,25 @@ const cardVariants: Variants = {
 
 const ServiceSection = () => {
   return (
-    <motion.div
-      className="flex flex-wrap gap-10 my-20 justify-center"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
-    >
-      {services.map((service, index) => (
-        <motion.div key={index} variants={cardVariants}>
-          <ServiceCard
-            icon={service.icon}
-            title={service.title}
-            paragraph={service.paragraph}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+    <section className="mx-auto px-4 py-16">
+      <motion.div
+        className="flex flex-wrap gap-10 justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        {services.map((service, index) => (
+          <motion.div key={index} variants={cardVariants}>
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              paragraph={service.paragraph}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 };
 

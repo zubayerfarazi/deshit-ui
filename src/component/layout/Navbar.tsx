@@ -4,11 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
 import navItems from "@/config/Navitems";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleDropdown = (label: string) => {
@@ -28,25 +29,17 @@ export default function Navbar() {
 
   return (
     <div className="container max-w-screen-xl mx-auto px-4 py-4">
-      <nav className="flex gap-20 items-center">
+      <nav className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              priority
-            />
-          </Link>
-        </div>
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.png" alt="Logo" width={100} height={100} priority />
+        </Link>
 
-        <ul className="flex items-center gap-6">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const hasDropdown = item.children && item.children.length > 0;
 
-            // Case 1: simple link
             if (!item.hasChildren) {
               return (
                 <li key={item.label}>
@@ -62,7 +55,6 @@ export default function Navbar() {
               );
             }
 
-            // Case 2: hasChildren but no dropdown
             if (item.hasChildren && !hasDropdown) {
               return (
                 <li key={item.label}>
@@ -79,7 +71,6 @@ export default function Navbar() {
               );
             }
 
-            // Case 3: hasChildren + dropdown
             return (
               <li key={item.label} className="relative">
                 <button
@@ -114,7 +105,82 @@ export default function Navbar() {
             );
           })}
         </ul>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-3xl"
+          >
+            {mobileMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <ul className="flex flex-col md:hidden gap-4 mt-4">
+          {navItems.map((item) => {
+            const hasDropdown = item.children && item.children.length > 0;
+
+            if (!item.hasChildren) {
+              return (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-black hover:text-[var(--primary-color)]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            }
+
+            if (item.hasChildren && !hasDropdown) {
+              return (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center px-4 py-2 text-black hover:text-[var(--primary-color)]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            }
+
+            return (
+              <li key={item.label}>
+                <button
+                  onClick={() => toggleDropdown(item.label)}
+                  className="flex items-center justify-between w-full px-4 py-2 text-black hover:text-[var(--primary-color)]"
+                >
+                  {item.label}
+                  <RiArrowDropDownLine size={20} />
+                </button>
+
+                {openDropdown === item.label && (
+                  <ul className="pl-4 mt-2 flex flex-col gap-2">
+                    {item.children!.map((child) => (
+                      <li key={child.label}>
+                        <Link
+                          href={child.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block px-4 py-2 text-black hover:text-[var(--primary-color)]"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

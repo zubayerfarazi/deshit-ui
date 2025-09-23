@@ -39,7 +39,7 @@ const OurClient = () => {
       <p className="text-4xl font-semibold text-center">Our Clients</p>
 
       <motion.div
-        className="grid md:grid-cols-6 gap-4 mt-4 justify-center items-center"
+        className="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4 justify-center items-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

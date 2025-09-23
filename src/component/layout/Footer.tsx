@@ -15,7 +15,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="mt-10 container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-8">
+    <footer className="mt-10 container max-w-screen-xl mx-auto px-4 py-4">
       {/* Top Section */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-20">
         {/* Left Info */}

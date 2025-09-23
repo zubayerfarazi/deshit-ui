@@ -6,7 +6,7 @@ const Timeline = () => {
   const [projects, setProjects] = useState(0);
   const [countries, setCountries] = useState(0);
   const [developers, setDevelopers] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false); // prevent re-animation
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -59,30 +59,32 @@ const Timeline = () => {
   }, [hasAnimated]);
 
   return (
-    <div ref={sectionRef} className="bg-gray-100 mt-10">
-      <div className="flex flex-wrap md:flex-nowrap items-center justify-between container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-6 gap-6">
-        
-        <div className="flex flex-col items-center">
-          <p className="text-[var(--primary-color)] text-4xl font-bold">{years}</p>
-          <p className="text-xs">Years of Experience</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <p className="text-[var(--primary-color)] text-4xl font-bold">{projects}</p>
-          <p className="text-xs">Delivered Projects</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <p className="text-[var(--primary-color)] text-4xl font-bold">{countries}</p>
-          <p className="text-xs">Countries Served</p>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <p className="text-[var(--primary-color)] text-4xl font-bold">{developers}</p>
-          <p className="text-xs">Developers</p>
-        </div>
-      </div>
+    <div ref={sectionRef} className="bg-gray-100 mt-10 w-full">
+  <div className="container max-w-screen-xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-12 px-4 py-10">
+    
+    <div className="flex flex-col items-center">
+      <p className="text-[var(--primary-color)] text-4xl font-bold">{years}</p>
+      <p className="text-xs">Years of Experience</p>
     </div>
+
+    <div className="flex flex-col items-center">
+      <p className="text-[var(--primary-color)] text-4xl font-bold">{projects}</p>
+      <p className="text-xs">Delivered Projects</p>
+    </div>
+
+    <div className="flex flex-col items-center">
+      <p className="text-[var(--primary-color)] text-4xl font-bold">{countries}</p>
+      <p className="text-xs">Countries Served</p>
+    </div>
+
+    <div className="flex flex-col items-center">
+      <p className="text-[var(--primary-color)] text-4xl font-bold">{developers}</p>
+      <p className="text-xs">Developers</p>
+    </div>
+    
+  </div>
+</div>
+
   );
 };
 
