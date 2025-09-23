@@ -1,12 +1,12 @@
+"use client";
+
 import SpecializeCard from "@/component/card/SpecializeCard";
 import React from "react";
-import { CiStar } from "react-icons/ci";
+import { motion, Variants } from "framer-motion";
 import {
   FaCalculator,
   FaCloud,
-  FaCode,
   FaGlobe,
-  FaMobileAlt,
   FaShoppingCart,
   FaStar,
   FaUsers,
@@ -34,7 +34,6 @@ const specializations = [
     paragraph:
       "Craft a Dynamic Website that articulates your vision and captivates your audience, amplifying your brand's unique identity.",
   },
-
   {
     icon: <FaCloud />,
     title: "SaaS",
@@ -73,27 +72,63 @@ const specializations = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const SpecializeSection = () => {
   return (
     <div className="bg-gray-100">
       <div className="container max-w-screen-xl mx-auto flex flex-col gap-4 px-4 py-10">
-        <p className="text-2xl font-semibold text-center">We Specialize</p>
-        <p className="text-gray-700 max-w-2xl text-center mx-auto mt-4">
+        <motion.p
+          className="text-2xl font-semibold text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          We Specialize
+        </motion.p>
+
+        <motion.p
+          className="text-gray-700 max-w-2xl text-center mx-auto mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           We specialize in providing on-demand software solutions across various
           sectors. Our expertise covers a wide range of domains, ensuring
           tailored solutions to meet diverse business needs.
-        </p>
+        </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-4">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+        >
           {specializations.map((item, index) => (
-            <SpecializeCard
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              paragraph={item.paragraph}
-            />
+            <motion.div key={index} variants={cardVariants}>
+              <SpecializeCard
+                icon={item.icon}
+                title={item.title}
+                paragraph={item.paragraph}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

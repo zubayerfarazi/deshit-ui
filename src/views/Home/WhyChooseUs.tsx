@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
 
   return (
     <div ref={sectionRef} className="py-20">
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4">
         {/* Left Text */}
         <div>
           <p className="text-2xl font-semibold">Why Choose Us</p>
