@@ -12,34 +12,36 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { FiPhone, FiMapPin } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-4">
-      <div className="flex items-center justify-between gap-8">
-        <div className="w-sm">
-          <p className="font-semibold text-md mb-6">
+    <footer className="mt-10 container max-w-screen-sm md:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-8">
+      {/* Top Section */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-20">
+        {/* Left Info */}
+        <div className="flex-1 space-y-4">
+          <p className="font-semibold text-md">
             Grow Your Online Business and Improve Customer Retention
           </p>
 
-          <p className="flex items-center gap-2 mb-4">
-            <FaPhoneAlt className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />{" "}
+          <p className="flex items-center gap-2">
+            <FaPhoneAlt className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />
             +880 1537-570379
           </p>
 
-          <p className="flex items-center gap-2 mb-4">
-            <FaMapMarkerAlt className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />{" "}
+          <p className="flex items-center gap-2">
+            <FaMapMarkerAlt className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />
             House D/36, Block E, Lalmatia, Dhaka-1207
           </p>
 
           <p className="flex items-center gap-2">
-            <FaHandshake className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />{" "}
+            <FaHandshake className="bg-[var(--primary-color)] text-white w-6 h-6 rounded-full p-1" />
             Get Estimate
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Right Links */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 flex-1 w-full">
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
@@ -120,7 +122,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 mt-8 text-black">
+      {/* Social Icons */}
+      <div className="flex flex-wrap items-center gap-4 mt-8 text-black">
         <FaFacebookF className="hover:text-[var(--primary-color)] cursor-pointer" />
         <FaTwitter className="hover:text-[var(--primary-color)] cursor-pointer" />
         <FaYoutube className="hover:text-[var(--primary-color)] cursor-pointer" />
@@ -129,10 +132,11 @@ const Footer = () => {
         <FaPinterestP className="hover:text-[var(--primary-color)] cursor-pointer" />
       </div>
 
-      <div className="py-4 mt-8 text-sm flex flex-col md:flex-row items-center justify-between">
-        <div className="flex items-center gap-30">
+      {/* Bottom Section */}
+      <div className="py-4 mt-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <p>© 2025 DeshiT-BD.ltd</p>
-          <div className="flex gap-1 my-2 md:my-0">
+          <div className="flex gap-1 items-center">
             <Link href="#" className="text-[var(--primary-color)]">
               Sitemap
             </Link>
@@ -141,7 +145,7 @@ const Footer = () => {
               Privacy Policy
             </Link>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <p>Download Brochure:</p>
             <Link href="#" className="text-[var(--primary-color)]">
               English

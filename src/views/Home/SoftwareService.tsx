@@ -59,7 +59,7 @@ const SoftwareService = () => {
       <div className="container max-w-screen-xl mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20">
           <motion.p
-            className="text-3xl font-bold max-w-sm"
+            className="text-3xl font-bold md:max-w-sm"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -68,7 +68,7 @@ const SoftwareService = () => {
             Customer Enterprise Software Development Services
           </motion.p>
           <motion.p
-            className="max-w-md"
+            className="md:max-w-md"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -80,7 +80,7 @@ const SoftwareService = () => {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
