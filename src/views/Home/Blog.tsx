@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import Button from "@/component/ui/Button";
 
 const blogTitle = [
   { id: 1, title: "Technologies" },
@@ -14,10 +15,24 @@ const blogTitle = [
 ];
 
 const blogs = [
-  { id: 1, imageUrl: "/blog-1.png", title: "Why your startup needs a fractional CTO: Benefits, Costs, and when to hire one" },
+  {
+    id: 1,
+    imageUrl: "/blog-1.png",
+    title:
+      "Why your startup needs a fractional CTO: Benefits, Costs, and when to hire one",
+  },
   { id: 2, imageUrl: "/blog-2.png", title: "Monolithic to headless migration" },
-  { id: 3, imageUrl: "/blog-3.png", title: "Software rescue services: turning failed softere into success stories" },
-  { id: 4, imageUrl: "/blog-4.png", title: "Custom odgo theme development solutions" },
+  {
+    id: 3,
+    imageUrl: "/blog-3.png",
+    title:
+      "Software rescue services: turning failed softere into success stories",
+  },
+  {
+    id: 4,
+    imageUrl: "/blog-4.png",
+    title: "Custom odgo theme development solutions",
+  },
 ];
 
 const Blog = () => {
@@ -32,7 +47,11 @@ const Blog = () => {
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -100,18 +119,9 @@ const Blog = () => {
         ))}
       </motion.div>
 
-      {/* Button */}
-      <motion.div
-        className="text-center mt-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        <button className="bg-[var(--primary-color)] px-4 py-2 rounded-md text-white cursor-pointer">
-          All Blogs
-        </button>
-      </motion.div>
+      <div className="mt-10 flex items-center justify-center">
+        <Button>All Blogs</Button>
+      </div>
     </div>
   );
 };

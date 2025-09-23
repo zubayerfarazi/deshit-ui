@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import Button from "@/component/ui/Button";
 
 const Portfolio = () => {
   const projects = [
@@ -23,7 +24,11 @@ const Portfolio = () => {
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -32,7 +37,7 @@ const Portfolio = () => {
         className="text-2xl font-semibold text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }} 
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
         Our Projects & Portfolio
@@ -43,7 +48,7 @@ const Portfolio = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }} 
+        viewport={{ once: false, amount: 0.3 }}
       >
         {projects.map((project, index) => (
           <motion.div key={index} variants={itemVariants}>
@@ -58,17 +63,9 @@ const Portfolio = () => {
         ))}
       </motion.div>
 
-      <motion.div
-        className="text-center mt-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }} 
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        <button className="bg-[var(--primary-color)] px-8 py-3 rounded-md text-white cursor-pointer font-medium">
-          Read More Case Studies
-        </button>
-      </motion.div>
+      <div className="flex items-center justify-center mt-10">
+        <Button>Read More Case Studies</Button>
+      </div>
     </div>
   );
 };

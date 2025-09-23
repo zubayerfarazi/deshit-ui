@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
-import { FaAddressCard, FaHeart, FaHourglassHalf, FaUserSecret } from "react-icons/fa";
+import {
+  FaAddressCard,
+  FaHeart,
+  FaHourglassHalf,
+  FaUserSecret,
+} from "react-icons/fa";
 import { motion, Variants } from "framer-motion";
 
 const AboutUs = () => {
@@ -68,7 +73,10 @@ const AboutUs = () => {
             </p>
           </motion.div>
 
-          <motion.div className="flex-1 flex justify-center" variants={fadeRightVariants}>
+          <motion.div
+            className="flex-1 flex justify-center"
+            variants={fadeRightVariants}
+          >
             <Image
               src="/aboutUs.png"
               alt="about us"

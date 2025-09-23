@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/component/ui/Button";
 import React, { useEffect, useRef, useState } from "react";
 
 const WhyChooseUs = () => {
@@ -38,9 +39,9 @@ const WhyChooseUs = () => {
             results that drive your business forward.
           </p>
 
-          <button className="mt-8 bg-[var(--primary-color)] text-white px-6 py-2 rounded-md hover:opacity-90 transition cursor-pointer">
-            Our Team
-          </button>
+          <div className="mt-10">
+            <Button>Our Team</Button>
+          </div>
         </div>
 
         {/* Right Animated Circle */}
