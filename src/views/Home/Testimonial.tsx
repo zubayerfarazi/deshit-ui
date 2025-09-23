@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Testimonial = () => {
   return (
-    <div className="py-20">
+    <div className="py-20 px-4 sm:px-0">
       <div className="flex items-center justify-center">
         <div className="text-center max-w-4xl mx-auto">
           {/* Heading */}

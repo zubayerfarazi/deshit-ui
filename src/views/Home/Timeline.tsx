@@ -45,10 +45,10 @@ const Timeline = () => {
           animateCount(setProjects, 175, 2500);
           animateCount(setCountries, 22, 2200);
           animateCount(setDevelopers, 50, 2300);
-          setHasAnimated(true); // run only once
+          setHasAnimated(true); 
         }
       },
-      { threshold: 0.3 } // when 30% of section is visible
+      { threshold: 0.3 } 
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);

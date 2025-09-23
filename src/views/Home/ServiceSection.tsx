@@ -48,9 +48,9 @@ const cardVariants: Variants = {
 
 const ServiceSection = () => {
   return (
-    <section className="mx-auto px-4 py-16">
+    <section className="mx-auto px-4 mt-10">
       <motion.div
-        className="flex flex-wrap gap-10 justify-center"
+        className="flex flex-wrap gap-10 justify-center py-4"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

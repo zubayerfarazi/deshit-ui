@@ -58,29 +58,21 @@ const SoftwareService = () => {
     <div className="bg-gray-100">
       <div className="container max-w-screen-xl mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-20">
-          <motion.p
-            className="text-3xl font-bold md:max-w-sm"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            viewport={{ once: false, amount: 0.3 }}
+          <p
+            className="text-3xl font-bold"
           >
             Customer Enterprise Software Development Services
-          </motion.p>
-          <motion.p
-            className="md:max-w-md"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            viewport={{ once: false, amount: 0.3 }}
+          </p>
+          <p
+            className="w-full max-w-full md:max-w-md"
           >
             We prioritize cultivating lasting business partnerships as your
             trusted software development partner
-          </motion.p>
+          </p>
         </div>
 
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-8 justify-items-center items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

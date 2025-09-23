@@ -26,16 +26,14 @@ const Contact = () => {
       variants={containerVariants}
     >
       <div className="container max-w-screen-xl mx-auto flex flex-col gap-4 px-4 py-10">
-        {/* Section Title */}
         <motion.p
-          className="text-xl font-semibold text-white"
+          className="text-xl font-semibold text-white text-center md:text-start"
           variants={itemVariants}
         >
           Let's Make Things Happen!
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-6">
-          {/* Left Side */}
+        <div className="grid md:grid-cols-2 gap-8 mt-6 justify-items-center items-center">
           <motion.div className="flex flex-col gap-6" variants={itemVariants}>
             <motion.div variants={itemVariants}>
               <Image
@@ -48,7 +46,7 @@ const Contact = () => {
             </motion.div>
 
             <motion.p
-              className="text-white text-2xl italic my-8"
+              className="text-white text-2xl italic md:my-8"
               variants={itemVariants}
             >
               "Do not suffer novices, hire a skilled team"
@@ -69,9 +67,8 @@ const Contact = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Contact Form */}
           <motion.div
-            className="bg-white flex flex-col p-6 md:p-8 rounded-xl"
+            className="bg-white flex flex-col p-6 md:p-8 rounded-xl w-full"
             variants={itemVariants}
           >
             <motion.p
