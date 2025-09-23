@@ -3,7 +3,7 @@ import React from "react";
 const WhyChooseUs = () => {
   return (
     <div className="py-20">
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2 gap-4">
         <div>
           <p className="text-2xl font-semibold">Why Choose Us</p>
 
