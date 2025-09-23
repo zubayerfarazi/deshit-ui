@@ -24,23 +24,35 @@ const cardVariants: Variants = {
   },
 };
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, paragraph }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  icon,
+  title,
+  paragraph,
+}) => {
   return (
     <motion.div
-      className="border border-gray-300 rounded-lg shadow-lg p-6 flex flex-col items-center gap-4 w-90"
+      className="border border-gray-300 rounded-lg shadow-lg p-6 flex flex-col items-center gap-4 w-90 group relative overflow-hidden"
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }} // triggers every time 30% visible
-      whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} // optional hover effect
+      viewport={{ once: false, amount: 0.3 }}
+      whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
     >
-      <div className="bg-[var(--primary-color)] text-white w-12 h-12 p-2 rounded-full text-2xl flex items-center justify-center">
-        {icon}
+      <div className="absolute inset-0 bg-[var(--primary-color)] transform scale-0 origin-top-left transition-all duration-700 ease-out group-hover:scale-150 rounded-lg opacity-0 group-hover:opacity-100"></div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4 w-full">
+        <div className="bg-[var(--primary-color)] group-hover:bg-white group-hover:text-[var(--primary-color)] text-white w-12 h-12 p-2 rounded-full text-2xl flex items-center justify-center transition-all duration-700 transform group-hover:rotate-12">
+          {icon}
+        </div>
+
+        <p className="text-xl font-semibold group-hover:text-white transition-all duration-700 transform group-hover:translate-y-[-2px]">
+          {title}
+        </p>
+
+        <p className="text-gray-600 group-hover:text-white text-center mt-2 transition-all duration-700 transform group-hover:translate-y-[-1px]">
+          {paragraph}
+        </p>
       </div>
-
-      <p className="text-xl font-semibold">{title}</p>
-
-      <p className="text-gray-600 text-center mt-2">{paragraph}</p>
     </motion.div>
   );
 };

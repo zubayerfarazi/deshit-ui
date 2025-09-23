@@ -8,14 +8,12 @@ export default function Hero() {
   return (
     <section className="container mx-auto px-4 py-16">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-        
         {/* Left Content */}
         <motion.div
           className="md:w-1/2 flex flex-col gap-5"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.3 }} 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
           <p className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide">
             Experience Excellence with Top Software Company of Bangladesh
@@ -27,11 +25,13 @@ export default function Hero() {
           </p>
 
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            // whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="mt-4 border-2 w-fit px-4 py-2 rounded-md cursor-pointer transition-all ease-in-out duration-300 hover:bg-[var(--primary-color)] hover:text-white"
+            className="mt-4 border-2 border-[var(--primary-color)] text-[var(--primary-color)] w-fit px-4 py-2 rounded-md cursor-pointer relative overflow-hidden group"
           >
-            <button className="flex items-center gap-1">
+            <div className="absolute inset-0 bg-[var(--primary-color)] transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0 cursor-pointer"></div>
+
+            <button className="flex items-center gap-1 relative z-10 transition-colors duration-300 group-hover:text-white cursor-pointer">
               Our Services <MdKeyboardDoubleArrowRight size={20} />
             </button>
           </motion.div>
