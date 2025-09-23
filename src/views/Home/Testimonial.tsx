@@ -37,7 +37,7 @@ const Testimonial = () => {
 
           <div className="flex items-center justify-start mb-6">
             <img
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=100&h=100&fit=crop&crop=face"
+              src="contact-default.png"
               alt="Bodilija Abelsson"
               className="w-16 h-16 rounded-full mr-4"
             />

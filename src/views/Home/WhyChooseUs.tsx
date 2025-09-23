@@ -1,9 +1,32 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 
 const WhyChooseUs = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsAnimated(true);
+          observer.disconnect(); // animate only once
+        }
+      },
+      { threshold: 0.3 } // trigger when 30% of the section is visible
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="py-20">
+    <div ref={sectionRef} className="py-20">
       <div className="grid md:grid-cols-2 gap-4">
+        {/* Left Text */}
         <div>
           <p className="text-2xl font-semibold">Why Choose Us</p>
 
@@ -20,11 +43,30 @@ const WhyChooseUs = () => {
           </button>
         </div>
 
-        <div className="flex items-center justify-center bg-gray-50">
-          <div className="relative w-80 h-80">
-            
-            <div className="w-full h-full border-2 border-gray-300 rounded-full flex items-center justify-center">
-              {/* Center Content */}
+        {/* Right Animated Circle */}
+        <div className="flex flex-col items-center justify-center p-8">
+          <div className="relative w-80 h-80 mb-8">
+            {/* Circle */}
+            <svg
+              className="absolute inset-0 w-full h-full transform -rotate-90"
+              viewBox="0 0 100 100"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="48"
+                fill="none"
+                stroke="#f97316"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray={2 * Math.PI * 48}
+                strokeDashoffset={isAnimated ? 0 : 2 * Math.PI * 48}
+                style={{ transition: "stroke-dashoffset 2s ease-out" }}
+              />
+            </svg>
+
+            {/* Center Content */}
+            <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center px-8">
                 <h2 className="text-3xl font-bold text-black mb-4">
                   Development
@@ -36,8 +78,13 @@ const WhyChooseUs = () => {
               </div>
             </div>
 
-            {/* Top Icon - Search */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+            {/* Top Icon */}
+            <div
+              className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center transition-all duration-1000 ${
+                isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}
+              style={{ transitionDelay: "0.5s" }}
+            >
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
@@ -53,8 +100,13 @@ const WhyChooseUs = () => {
               </svg>
             </div>
 
-            {/* Right Icon - Security/Lock */}
-            <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+            {/* Right Icon */}
+            <div
+              className={`absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center transition-all duration-1000 ${
+                isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}
+              style={{ transitionDelay: "1s" }}
+            >
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
@@ -70,8 +122,13 @@ const WhyChooseUs = () => {
               </svg>
             </div>
 
-            {/* Bottom Icon - Eye */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+            {/* Bottom Icon */}
+            <div
+              className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center transition-all duration-1000 ${
+                isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}
+              style={{ transitionDelay: "1.5s" }}
+            >
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
@@ -93,8 +150,13 @@ const WhyChooseUs = () => {
               </svg>
             </div>
 
-            {/* Left Icon - Chart/Analytics */}
-            <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+            {/* Left Icon */}
+            <div
+              className={`absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center transition-all duration-1000 ${
+                isAnimated ? "opacity-100 scale-100" : "opacity-0 scale-50"
+              }`}
+              style={{ transitionDelay: "2s" }}
+            >
               <svg
                 className="w-6 h-6 text-white"
                 fill="none"
