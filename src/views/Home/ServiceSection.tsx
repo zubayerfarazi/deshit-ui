@@ -1,18 +1,14 @@
+"use client";
+
 import ServiceCard from "@/component/card/ServiceCard";
-import {
-  FaUsers,
-  FaPeopleCarry,
-  FaProjectDiagram,
-  FaUsersCog,
-  FaBoxOpen,
-} from "react-icons/fa";
+import { FaUsersCog, FaPeopleCarry, FaBoxOpen } from "react-icons/fa";
+import { motion, Variants } from "framer-motion";
 
 const services = [
   {
     icon: <FaUsersCog />,
     title: "Dedicated Team",
-    paragraph: `Our Dedicated Team of expert developers will work exclusively on your projects. They’ll ensure the progress, flexibility, and seamless integration with your existing processes, 
-delivering top-notch results tailored to your on-demand needs.`,
+    paragraph: `Our Dedicated Team of expert developers will work exclusively on your projects. They’ll ensure the progress, flexibility, and seamless integration with your existing processes, delivering top-notch results tailored to your on-demand needs.`,
   },
   {
     icon: <FaPeopleCarry />,
@@ -26,18 +22,49 @@ delivering top-notch results tailored to your on-demand needs.`,
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15, // cards animate one after another
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring", // smoother, natural motion
+      stiffness: 120,
+      damping: 20,
+      mass: 0.5,
+    },
+  },
+};
+
 const ServiceSection = () => {
   return (
-    <div className="flex flex-wrap gap-10 my-20">
+    <motion.div
+      className="flex flex-wrap gap-10 my-20 justify-center"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+    >
       {services.map((service, index) => (
-        <ServiceCard
-          key={index}
-          icon={service.icon}
-          title={service.title}
-          paragraph={service.paragraph}
-        />
+        <motion.div key={index} variants={cardVariants}>
+          <ServiceCard
+            icon={service.icon}
+            title={service.title}
+            paragraph={service.paragraph}
+          />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
