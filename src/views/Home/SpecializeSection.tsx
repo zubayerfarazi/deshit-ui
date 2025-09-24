@@ -115,9 +115,9 @@ const SpecializeSection = () => {
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4"
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          // initial="hidden"
+          // whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
         >
           {specializations.map((item, index) => (
             <motion.div key={index} variants={cardVariants}>

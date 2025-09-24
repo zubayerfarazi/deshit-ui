@@ -48,7 +48,7 @@ const Award = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
       >
-        <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {awards.slice(0, 4).map((src, index) => (
             <motion.div
               key={index}
@@ -66,7 +66,7 @@ const Award = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-3 gap-30">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:gap-30">
             {awards.slice(4, 7).map((src, index) => (
               <motion.div
                 key={index + 4}
