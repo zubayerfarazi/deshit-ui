@@ -19,24 +19,32 @@ const ServiceNavbar = () => {
   const isActive = (href: string) => pathname === href;
 
   const baseClass =
-    "relative w-28 flex justify-center pb-1 text-black hover:text-[var(--primary-color)] transition-colors";
+    "relative px-4 py-2 flex justify-center text-gray-700 hover:text-[var(--primary-color)] transition-all duration-300 font-medium text-sm group";
 
   const activeUnderline =
-    "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-100 after:origin-left after:transition-transform after:duration-300";
+    "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[3px] after:w-20 after:bg-[var(--primary-color)] after:scale-x-100 after:origin-center after:transition-all after:duration-300 after:rounded-full after:-translate-x-1/2";
 
   const normalUnderline =
-    "after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100";
+    "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[3px] after:w-20 after:bg-[var(--primary-color)] after:scale-x-0 after:origin-center after:transition-all after:duration-300 group-hover:after:scale-x-100 after:rounded-full after:-translate-x-1/2";
 
   return (
-    <div className="container max-w-screen-xl mx-auto px-4 py-4">
-      <nav className="flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} priority />
-        </Link>
+    <div className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+      <div className="container max-w-screen-xl mx-auto px-4 py-3">
+        <nav className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center group">
+            <Image 
+              src="/logo.png" 
+              alt="Logo" 
+              width={120} 
+              height={40} 
+              priority 
+              className="transition-transform duration-300 group-hover:scale-105"
+            />
+          </Link>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-6">
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex items-center gap-1">
           {navItems.map((item) => {
             const hasDropdown = item.children && item.children.length > 0;
 
@@ -84,15 +92,15 @@ const ServiceNavbar = () => {
                 </button>
 
                 {openDropdown === item.label && (
-                  <ul className="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow-md w-40 z-10">
+                  <ul className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-xl w-48 z-50 py-2">
                     {item.children!.map((child) => (
                       <li key={child.label}>
                         <Link
                           href={child.href}
-                          className={`block px-4 py-2 hover:bg-orange-50 ${
+                          className={`block px-4 py-3 text-sm hover:bg-gray-50 transition-colors duration-200 ${
                             isActive(child.href)
-                              ? "text-[var(--primary-color)] font-semibold"
-                              : ""
+                              ? "text-[var(--primary-color)] font-semibold bg-gray-50"
+                              : "text-gray-700"
                           }`}
                         >
                           {child.label}
@@ -110,77 +118,101 @@ const ServiceNavbar = () => {
         <div className="md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-3xl"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
           >
-            {mobileMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
+            {mobileMenuOpen ? (
+              <RiCloseLine className="text-2xl text-gray-700" />
+            ) : (
+              <RiMenuLine className="text-2xl text-gray-700" />
+            )}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <ul className="flex flex-col md:hidden gap-4 mt-4">
-          {navItems.map((item) => {
-            const hasDropdown = item.children && item.children.length > 0;
+        <div className="md:hidden bg-white border-t border-gray-100 mt-4 -mx-4 px-4 py-4">
+          <ul className="flex flex-col gap-2">
+            {navItems.map((item) => {
+              const hasDropdown = item.children && item.children.length > 0;
 
-            if (!item.hasChildren) {
+              if (!item.hasChildren) {
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? "text-[var(--primary-color)] bg-gray-50"
+                          : "text-gray-700 hover:text-[var(--primary-color)] hover:bg-gray-50"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              }
+
+              if (item.hasChildren && !hasDropdown) {
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? "text-[var(--primary-color)] bg-gray-50"
+                          : "text-gray-700 hover:text-[var(--primary-color)] hover:bg-gray-50"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              }
+
               return (
                 <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-2 text-black hover:text-[var(--primary-color)]"
+                  <button
+                    onClick={() => toggleDropdown(item.label)}
+                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-gray-700 hover:text-[var(--primary-color)] hover:bg-gray-50 rounded-lg transition-colors duration-200"
                   >
                     {item.label}
-                  </Link>
+                    <RiArrowDropDownLine 
+                      size={20} 
+                      className={`transition-transform duration-200 ${
+                        openDropdown === item.label ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {openDropdown === item.label && (
+                    <ul className="pl-4 mt-2 flex flex-col gap-1">
+                      {item.children!.map((child) => (
+                        <li key={child.label}>
+                          <Link
+                            href={child.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`block px-4 py-2 text-sm rounded-lg transition-colors duration-200 ${
+                              isActive(child.href)
+                                ? "text-[var(--primary-color)] font-semibold bg-gray-50"
+                                : "text-gray-600 hover:text-[var(--primary-color)] hover:bg-gray-50"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               );
-            }
-
-            if (item.hasChildren && !hasDropdown) {
-              return (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center px-4 py-2 text-black hover:text-[var(--primary-color)]"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            }
-
-            return (
-              <li key={item.label}>
-                <button
-                  onClick={() => toggleDropdown(item.label)}
-                  className="flex items-center justify-between w-full px-4 py-2 text-black hover:text-[var(--primary-color)]"
-                >
-                  {item.label}
-                  <RiArrowDropDownLine size={20} />
-                </button>
-
-                {openDropdown === item.label && (
-                  <ul className="pl-4 mt-2 flex flex-col gap-2">
-                    {item.children!.map((child) => (
-                      <li key={child.label}>
-                        <Link
-                          href={child.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-2 text-black hover:text-[var(--primary-color)]"
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+            })}
+          </ul>
+        </div>
       )}
+      </div>
     </div>
   );
 }

@@ -211,13 +211,95 @@ const faqs = [
 const containerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.2 },
+    transition: { 
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { 
+    opacity: 0, 
+    y: 50,
+    scale: 0.95,
+    rotateX: -15
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    rotateX: 0,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.25, 0.46, 0.45, 0.94],
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    } 
+  },
+};
+
+const fadeInUpVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 60,
+    scale: 0.9
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: { 
+      duration: 0.9, 
+      ease: [0.25, 0.46, 0.45, 0.94],
+      type: "spring",
+      stiffness: 80,
+      damping: 20
+    } 
+  },
+};
+
+const slideInVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    x: -50,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    scale: 1,
+    transition: { 
+      duration: 0.7, 
+      ease: [0.25, 0.46, 0.45, 0.94],
+      type: "spring",
+      stiffness: 120,
+      damping: 18
+    } 
+  },
+};
+
+const faqItemVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    y: 40,
+    scale: 0.9,
+    rotateX: -10
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    rotateX: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: [0.25, 0.46, 0.45, 0.94],
+      type: "spring",
+      stiffness: 150,
+      damping: 20
+    } 
+  },
 };
 
 const Faq = () => {
@@ -232,14 +314,33 @@ const Faq = () => {
     <div className="my-20 container mx-auto px-4">
       <motion.div
         className="text-center mb-16"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 50, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          duration: 1.0, 
+          ease: [0.25, 0.46, 0.45, 0.94],
+          type: "spring",
+          stiffness: 80,
+          damping: 20
+        }}
       >
-        <p className="text-4xl font-semibold">
+        <motion.p 
+          className="text-4xl font-semibold"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.25, 0.46, 0.45, 0.94],
+            delay: 0.2
+          }}
+        >
           Get in Touch with Us for a Free Consultation Session
-        </p>
-        <div className="flex items-center justify-center">
+        </motion.p>
+        <div 
+          className="flex items-center justify-center"
+        >
           <Button>Book a Free Consultation</Button>
         </div>
       </motion.div>
@@ -248,106 +349,264 @@ const Faq = () => {
         className="grid md:grid-cols-2 gap-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <motion.div variants={itemVariants}>
-          <Image
-            src="/get-in-touch.png"
-            alt="get in touch"
-            width={500}
-            height={100}
-          />
-          <p className="text-4xl font-bold mt-3 max-w-md">
+        <motion.div 
+          variants={slideInVariants}
+          whileHover={{ 
+            scale: 1.02,
+            transition: { duration: 0.3 }
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+            whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.2
+            }}
+          >
+            <Image
+              src="/get-in-touch.png"
+              alt="get in touch"
+              width={500}
+              height={100}
+            />
+          </motion.div>
+          <motion.p 
+            className="text-4xl font-bold mt-3 max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.4
+            }}
+          >
             Get in Touch with Our Expert Team
-          </p>
-          <p className="mt-2 text-gray-700 max-w-md text-lg">
+          </motion.p>
+          <motion.p 
+            className="mt-2 text-gray-700 max-w-md text-lg"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.6
+            }}
+          >
             Our team with different talents, e.g., UX designers, project
             managers, frontend developers, backend developers, and devOps, will
             handhold through the rest of the process.
-          </p>
+          </motion.p>
 
-          <div className="flex items-center gap-4 mt-4">
-            <Image
-              src="/contact-default.png"
-              alt="contact person"
-              width={60}
-              height={60}
-            />
+          <motion.div 
+            className="flex items-center gap-4 mt-4"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.8
+            }}
+            whileHover={{ 
+              x: 5,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <motion.div
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 5,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <Image
+                src="/contact-default.png"
+                alt="contact person"
+                width={60}
+                height={60}
+              />
+            </motion.div>
             <div className="flex flex-col">
-              <p>Sajib</p>
-              <p>COO, DeshIt-BD</p>
+              <p className="font-semibold">Sajib</p>
+              <p className="text-gray-600">COO, DeshIt-BD</p>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
           className="bg-gray-100 px-4 py-6 mx-auto rounded-md flex flex-col items-start justify-center w-full"
-          variants={itemVariants}
+          variants={fadeInUpVariants}
+          whileHover={{ 
+            scale: 1.01,
+            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transition: { duration: 0.3 }
+          }}
         >
-          <p className="text-xl">
+          <motion.p 
+            className="text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.2
+            }}
+          >
             Not up for a meeting yet? Just get in touch with a message only:
-          </p>
+          </motion.p>
 
           <motion.div
             className="flex flex-col gap-6 mt-8 w-full"
-            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.4
+                }
+              }
+            }}
           >
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[var(--primary-color)] transition"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[var(--primary-color)] transition"
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[var(--primary-color)] transition"
-            />
-            <textarea
-              rows={4}
-              placeholder="Your Query"
-              className="w-full px-2 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[var(--primary-color)] transition resize-none"
-            />
+            {[
+              { type: "text", placeholder: "Your Name" },
+              { type: "email", placeholder: "Your Email" },
+              { type: "text", placeholder: "Subject" },
+              { type: "textarea", placeholder: "Your Query", rows: 4 }
+            ].map((field, index) => (
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { 
+                    opacity: 0, 
+                    y: 20,
+                    scale: 0.95
+                  },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1,
+                    transition: { 
+                      duration: 0.5, 
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 15
+                    } 
+                  }
+                }}
+                whileFocus={{ 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {field.type === "textarea" ? (
+                  <textarea
+                    rows={field.rows}
+                    placeholder={field.placeholder}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-300 hover:border-gray-400 resize-none"
+                  />
+                ) : (
+                  <input
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-300 hover:border-gray-400"
+                  />
+                )}
+              </motion.div>
+            ))}
           </motion.div>
 
           <motion.div
             className="mt-6 w-full text-center"
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.8
+            }}
           >
-            <button className="w-full bg-[var(--primary-color)] text-white font-semibold px-6 py-2 rounded-lg hover:bg-[var(--primary-color)] transition cursor-pointer">
-              Send
-            </button>
-            <span className="mt-2 text-xs text-gray-700">
+            <motion.button 
+              className="w-full bg-[var(--primary-color)] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: 0.5, 
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 1.0
+              }}
+            >
+              <motion.span
+                className="relative z-10"
+                whileHover={{ 
+                  y: -2,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                Send
+              </motion.span>
+            </motion.button>
+            <motion.span 
+              className="mt-2 text-xs text-gray-700 block"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 1.2
+              }}
+            >
               We will contact you after you query submission.
-            </span>
+            </motion.span>
           </motion.div>
         </motion.div>
       </motion.div>
 
       <motion.div
         className="mt-20"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ 
-          duration: 0.8, 
-          ease: "easeOut",
+          duration: 1.0, 
+          ease: [0.25, 0.46, 0.45, 0.94],
+          type: "spring",
+          stiffness: 80,
+          damping: 20,
           delay: 0.2
         }}
       >
         <motion.p 
           className="text-xl font-semibold text-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.8, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ 
-            duration: 0.6, 
-            ease: "easeOut",
+            duration: 0.8, 
+            ease: [0.25, 0.46, 0.45, 0.94],
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
             delay: 0.4
           }}
         >
@@ -363,8 +622,8 @@ const Faq = () => {
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3
+                staggerChildren: 0.08,
+                delayChildren: 0.6
               }
             }
           }}
@@ -372,48 +631,78 @@ const Faq = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 overflow-hidden"
-              variants={{
-                hidden: { 
-                  opacity: 0, 
-                  y: 30,
-                  scale: 0.95
-                },
-                visible: { 
-                  opacity: 1, 
-                  y: 0,
-                  scale: 1,
-                  transition: { 
-                    duration: 0.6, 
-                    ease: "easeOut" 
-                  } 
-                }
-              }}
+              className="cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden group"
+              variants={faqItemVariants}
               whileHover={{ 
                 scale: 1.02,
-                transition: { duration: 0.2 }
+                y: -2,
+                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { 
+                  duration: 0.3,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
               }}
               whileTap={{ scale: 0.98 }}
             >
               <motion.div
-                className="flex justify-between items-center py-4 px-6 hover:bg-gray-50 transition-colors duration-200"
+                className="flex justify-between items-center py-4 px-6 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 transition-all duration-300"
                 onClick={() => toggleFAQ(index)}
                 whileHover={{ 
-                  backgroundColor: "rgba(0, 0, 0, 0.02)"
+                  backgroundColor: "rgba(0, 0, 0, 0.02)",
+                  transition: { duration: 0.2 }
                 }}
               >
-                <p className="text-lg font-medium pr-4">{faq.question}</p>
+                <motion.p 
+                  className="text-lg font-medium pr-4"
+                  whileHover={{ 
+                    x: 5,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {faq.question}
+                </motion.p>
                 <motion.div
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[var(--primary-color)] group-hover:bg-opacity-10 transition-colors duration-300"
                   animate={{ 
                     rotate: openIndex === index ? 45 : 0,
-                    scale: openIndex === index ? 1.1 : 1
+                    scale: openIndex === index ? 1.2 : 1,
+                    backgroundColor: openIndex === index ? "rgba(var(--primary-color), 0.1)" : "rgba(0, 0, 0, 0.05)"
                   }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ 
+                    duration: 0.4, 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: openIndex === index ? 45 : 15,
+                    transition: { duration: 0.2 }
+                  }}
                 >
                   {openIndex === index ? (
-                    <FiMinus className="w-6 h-6 text-[var(--primary-color)]" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -90 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        duration: 0.3,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                    >
+                      <FiMinus className="w-5 h-5 text-[var(--primary-color)]" />
+                    </motion.div>
                   ) : (
-                    <FiPlus className="w-6 h-6 text-[var(--primary-color)]" />
+                    <motion.div
+                      initial={{ scale: 0, rotate: 90 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        duration: 0.3,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }}
+                    >
+                      <FiPlus className="w-5 h-5 text-[var(--primary-color)]" />
+                    </motion.div>
                   )}
                 </motion.div>
               </motion.div>
@@ -425,25 +714,42 @@ const Faq = () => {
                   opacity: openIndex === index ? 1 : 0
                 }}
                 transition={{ 
-                  duration: 0.4, 
-                  ease: "easeInOut"
+                  duration: 0.5, 
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20
                 }}
                 className="overflow-hidden"
               >
-                <motion.p
-                  className="text-gray-700 px-6 pb-4"
-                  initial={{ opacity: 0, y: -10 }}
+                <motion.div
+                  className="px-6 pb-4"
+                  initial={{ opacity: 0, y: -20, scale: 0.95 }}
                   animate={{ 
                     opacity: openIndex === index ? 1 : 0,
-                    y: openIndex === index ? 0 : -10
+                    y: openIndex === index ? 0 : -20,
+                    scale: openIndex === index ? 1 : 0.95
                   }}
                   transition={{ 
-                    duration: 0.3,
-                    delay: openIndex === index ? 0.1 : 0
+                    duration: 0.4,
+                    delay: openIndex === index ? 0.1 : 0,
+                    ease: [0.25, 0.46, 0.45, 0.94]
                   }}
                 >
-                  {faq.answer}
-                </motion.p>
+                  <motion.p
+                    className="text-gray-700 leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    animate={{ 
+                      opacity: openIndex === index ? 1 : 0
+                    }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: openIndex === index ? 0.2 : 0
+                    }}
+                  >
+                    {faq.answer}
+                  </motion.p>
+                </motion.div>
               </motion.div>
             </motion.div>
           ))}
