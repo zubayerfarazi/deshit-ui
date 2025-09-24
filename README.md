@@ -50,7 +50,7 @@ It highlights services, company stats, and other sections with smooth scroll-tri
 ---
 
 ## 👨‍💻 Author
-- **Your Name**  
+- **Zubayer Farazi**  
 - Portfolio: [http://zubayerfarazi.vercel.app/](http://zubayerfarazi.vercel.app/)  
 - LinkedIn: [https://www.linkedin.com/in/zubayerfarazi](https://www.linkedin.com/in/zubayerfarazi)  
 - GitHub: [https://github.com/zubayerfarazi](https://github.com/zubayerfarazi)
