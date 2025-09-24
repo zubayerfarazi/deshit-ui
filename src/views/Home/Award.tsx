@@ -42,26 +42,47 @@ const Award = () => {
       </motion.p>
 
       <motion.div
-        className="grid grid-cols-4 gap-4 mt-8"
+        className="mt-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
       >
-        {awards.map((src, index) => (
-          <motion.div
-            key={index}
-            className={`flex justify-center ${index >= 4 ? "mt-8" : ""}`}
-            variants={itemVariants}
-          >
-            <Image
-              src={src}
-              alt={`award-${index + 1}`}
-              width={200}
-              height={100}
-            />
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-4 gap-4 mb-8">
+          {awards.slice(0, 4).map((src, index) => (
+            <motion.div
+              key={index}
+              className="flex justify-center"
+              variants={itemVariants}
+            >
+              <Image
+                src={src}
+                alt={`award-${index + 1}`}
+                width={200}
+                height={100}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="flex justify-center">
+          <div className="grid grid-cols-3 gap-30">
+            {awards.slice(4, 7).map((src, index) => (
+              <motion.div
+                key={index + 4}
+                className="flex justify-center"
+                variants={itemVariants}
+              >
+                <Image
+                  src={src}
+                  alt={`award-${index + 5}`}
+                  width={200}
+                  height={100}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </div>
   );

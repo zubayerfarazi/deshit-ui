@@ -331,46 +331,123 @@ const Faq = () => {
 
       <motion.div
         className="mt-20"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ 
+          duration: 0.8, 
+          ease: "easeOut",
+          delay: 0.2
+        }}
       >
-        <p className="text-xl font-semibold text-center">
+        <motion.p 
+          className="text-xl font-semibold text-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ 
+            duration: 0.6, 
+            ease: "easeOut",
+            delay: 0.4
+          }}
+        >
           Frequently Asked Questions
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col gap-4 mt-4">
+        <motion.div 
+          className="flex flex-col gap-4 mt-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.3
+              }
+            }
+          }}
+        >
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="cursor-pointer"
-              variants={itemVariants}
+              className="cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 overflow-hidden"
+              variants={{
+                hidden: { 
+                  opacity: 0, 
+                  y: 30,
+                  scale: 0.95
+                },
+                visible: { 
+                  opacity: 1, 
+                  y: 0,
+                  scale: 1,
+                  transition: { 
+                    duration: 0.6, 
+                    ease: "easeOut" 
+                  } 
+                }
+              }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div
-                className="flex justify-between items-center py-3"
+              <motion.div
+                className="flex justify-between items-center py-4 px-6 hover:bg-gray-50 transition-colors duration-200"
                 onClick={() => toggleFAQ(index)}
+                whileHover={{ 
+                  backgroundColor: "rgba(0, 0, 0, 0.02)"
+                }}
               >
-                <p className="text-lg font-medium">{faq.question}</p>
-                {openIndex === index ? (
-                  <FiMinus className="w-6 h-6 text-[var(--primary-color)]" />
-                ) : (
-                  <FiPlus className="w-6 h-6 text-[var(--primary-color)]" />
-                )}
-              </div>
+                <p className="text-lg font-medium pr-4">{faq.question}</p>
+                <motion.div
+                  animate={{ 
+                    rotate: openIndex === index ? 45 : 0,
+                    scale: openIndex === index ? 1.1 : 1
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  {openIndex === index ? (
+                    <FiMinus className="w-6 h-6 text-[var(--primary-color)]" />
+                  ) : (
+                    <FiPlus className="w-6 h-6 text-[var(--primary-color)]" />
+                  )}
+                </motion.div>
+              </motion.div>
 
-              {openIndex === index && (
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openIndex === index ? "auto" : 0,
+                  opacity: openIndex === index ? 1 : 0
+                }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: "easeInOut"
+                }}
+                className="overflow-hidden"
+              >
                 <motion.p
-                  className="text-gray-700 mt-2"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.5 }}
+                  className="text-gray-700 px-6 pb-4"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ 
+                    opacity: openIndex === index ? 1 : 0,
+                    y: openIndex === index ? 0 : -10
+                  }}
+                  transition={{ 
+                    duration: 0.3,
+                    delay: openIndex === index ? 0.1 : 0
+                  }}
                 >
                   {faq.answer}
                 </motion.p>
-              )}
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
