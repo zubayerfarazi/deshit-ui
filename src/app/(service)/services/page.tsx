@@ -8,8 +8,6 @@ const page = () => {
       <div className={sectionClass}>
         <Faq />
       </div>
-
-      
     </>
   );
 };

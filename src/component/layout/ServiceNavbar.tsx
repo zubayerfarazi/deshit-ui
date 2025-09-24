@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
-import navItems from "@/config/Navitems";
+import navItems from "@/config/ServiceNavItem";
 
 const ServiceNavbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
