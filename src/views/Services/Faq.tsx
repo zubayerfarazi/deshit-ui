@@ -206,99 +206,221 @@ const faqs = [
     answer:
       "Absolutely. We can collaborate with your team or work independently depending on your requirements.",
   },
+  {
+    question:
+      "Do you have prior experience working with US/European/Japanese clients?",
+    answer:
+      "Yes, we have successfully worked with clients from the US, Europe, and Japan, gaining experience in diverse business cultures and expectations.",
+  },
+  {
+    question: "Can your team members speak in English?",
+    answer:
+      "Absolutely. Our team members are proficient in English and can communicate clearly throughout the project.",
+  },
+  {
+    question: "Are you familiar with CI tools?",
+    answer:
+      "Yes, we actively use CI/CD tools to streamline development, testing, and deployment processes.",
+  },
+  {
+    question: "How can I communicate with you?",
+    answer:
+      "We are flexible with communication channels such as email, Slack, Zoom, Google Meet, or any tool you prefer.",
+  },
+  {
+    question: "Do you follow Agile/Scrum?",
+    answer:
+      "Yes, we follow Agile methodologies including Scrum for iterative development, transparency, and faster delivery.",
+  },
+  {
+    question: "How is your office environment?",
+    answer:
+      "Our office environment is collaborative, professional, and focused on innovation and productivity.",
+  },
+  {
+    question: "Do you use project management tools?",
+    answer:
+      "Yes, we use tools like Jira, Trello, and Asana to manage projects efficiently and keep everything transparent.",
+  },
+  {
+    question: "Do you use version control?",
+    answer:
+      "Yes, we use Git and platforms like GitHub, GitLab, or Bitbucket for proper version control and collaboration.",
+  },
+  {
+    question: "Do you have experience with AWS and cloud?",
+    answer:
+      "Yes, we have experience working with AWS, as well as other cloud platforms like Azure and Google Cloud.",
+  },
+  {
+    question: "Do you have experience with Android/iOS development?",
+    answer:
+      "Yes, we develop native as well as cross-platform mobile applications for both Android and iOS.",
+  },
+  {
+    question: "Do you have experience with Ruby on Rails/PHP/.NET?",
+    answer:
+      "Yes, our team has experience with Ruby on Rails, PHP frameworks, and .NET technologies.",
+  },
+  {
+    question:
+      "Is it possible to become your sales/marketing executive in my country?",
+    answer:
+      "Yes, we are open to partnerships and collaboration opportunities in sales and marketing.",
+  },
+  {
+    question: "Do your employees work from home or office?",
+    answer:
+      "We maintain a hybrid approach depending on the situation, ensuring productivity and flexibility.",
+  },
+  {
+    question: "Do you hire part-time employees?",
+    answer:
+      "Yes, we consider part-time roles depending on the project requirements and candidate expertise.",
+  },
+  {
+    question: "Do you offer maintenance and support after development?",
+    answer:
+      "Yes, we provide ongoing maintenance and support even after project delivery.",
+  },
+  {
+    question: "Can you help further develop it?",
+    answer:
+      "Of course. We can continue to enhance and scale your project based on future needs.",
+  },
+  {
+    question: "Apart from software development, can you maintain my server?",
+    answer:
+      "Yes, we also provide server setup, monitoring, and maintenance services.",
+  },
+  {
+    question: "How do you ensure code quality?",
+    answer:
+      "We ensure quality through code reviews, automated testing, and industry-standard best practices.",
+  },
+  {
+    question: "Can I talk to someone to discuss my project/idea?",
+    answer:
+      "Yes, you can directly talk to our consultants or developers to discuss your project in detail.",
+  },
+  {
+    question: "What is the educational background of your employees?",
+    answer:
+      "Our team consists of professionals with computer science, software engineering, and related technical degrees.",
+  },
+  {
+    question: "Do you have or encourage child labor?",
+    answer:
+      "No, we strongly oppose child labor and strictly follow ethical employment practices.",
+  },
+  {
+    question: "Can you ensure the security of my project?",
+    answer:
+      "Yes, we follow best practices in security, encryption, and access control to safeguard your project.",
+  },
+  {
+    question: "Do you follow GDPR compliance?",
+    answer:
+      "Yes, we adhere to GDPR and other international data protection regulations.",
+  },
+  {
+    question: "Are you open during the Corona outbreak?",
+    answer:
+      "Yes, our team is fully operational with remote and hybrid work models during the pandemic.",
+  },
 ];
 
 const containerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: { 
+    transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.1
+      delayChildren: 0.1,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 50,
     scale: 0.95,
-    rotateX: -15
+    rotateX: -15,
   },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     rotateX: 0,
-    transition: { 
-      duration: 0.8, 
+    transition: {
+      duration: 0.8,
       ease: [0.25, 0.46, 0.45, 0.94],
       type: "spring",
       stiffness: 100,
-      damping: 15
-    } 
+      damping: 15,
+    },
   },
 };
 
 const fadeInUpVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 60,
-    scale: 0.9
+    scale: 0.9,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
-    transition: { 
-      duration: 0.9, 
+    transition: {
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
       type: "spring",
       stiffness: 80,
-      damping: 20
-    } 
+      damping: 20,
+    },
   },
 };
 
 const slideInVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     x: -50,
-    scale: 0.95
+    scale: 0.95,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     scale: 1,
-    transition: { 
-      duration: 0.7, 
+    transition: {
+      duration: 0.7,
       ease: [0.25, 0.46, 0.45, 0.94],
       type: "spring",
       stiffness: 120,
-      damping: 18
-    } 
+      damping: 18,
+    },
   },
 };
 
 const faqItemVariants: Variants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 40,
     scale: 0.9,
-    rotateX: -10
+    rotateX: -10,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
     rotateX: 0,
-    transition: { 
-      duration: 0.6, 
+    transition: {
+      duration: 0.6,
       ease: [0.25, 0.46, 0.45, 0.94],
       type: "spring",
       stiffness: 150,
-      damping: 20
-    } 
+      damping: 20,
+    },
   },
 };
 
@@ -317,30 +439,28 @@ const Faq = () => {
         initial={{ opacity: 0, y: 50, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ 
-          duration: 1.0, 
+        transition={{
+          duration: 1.0,
           ease: [0.25, 0.46, 0.45, 0.94],
           type: "spring",
           stiffness: 80,
-          damping: 20
+          damping: 20,
         }}
       >
-        <motion.p 
+        <motion.p
           className="text-4xl font-semibold"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ 
-            duration: 0.8, 
+          transition={{
+            duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
-            delay: 0.2
+            delay: 0.2,
           }}
         >
           Get in Touch with Us for a Free Consultation Session
         </motion.p>
-        <div 
-          className="flex items-center justify-center"
-        >
+        <div className="flex items-center justify-center">
           <Button>Book a Free Consultation</Button>
         </div>
       </motion.div>
@@ -352,21 +472,21 @@ const Faq = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <motion.div 
+        <motion.div
           variants={slideInVariants}
-          whileHover={{ 
+          whileHover={{
             scale: 1.02,
-            transition: { duration: 0.3 }
+            transition: { duration: 0.3 },
           }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
             whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.8, 
+            transition={{
+              duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.2
+              delay: 0.2,
             }}
           >
             <Image
@@ -376,28 +496,28 @@ const Faq = () => {
               height={100}
             />
           </motion.div>
-          <motion.p 
+          <motion.p
             className="text-4xl font-bold mt-3 max-w-md"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.4
+              delay: 0.4,
             }}
           >
             Get in Touch with Our Expert Team
           </motion.p>
-          <motion.p 
+          <motion.p
             className="mt-2 text-gray-700 max-w-md text-lg"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.6
+              delay: 0.6,
             }}
           >
             Our team with different talents, e.g., UX designers, project
@@ -405,26 +525,26 @@ const Faq = () => {
             handhold through the rest of the process.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             className="flex items-center gap-4 mt-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.8
+              delay: 0.8,
             }}
-            whileHover={{ 
+            whileHover={{
               x: 5,
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2 },
             }}
           >
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.1,
                 rotate: 5,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
             >
               <Image
@@ -444,21 +564,22 @@ const Faq = () => {
         <motion.div
           className="bg-gray-100 px-4 py-6 mx-auto rounded-md flex flex-col items-start justify-center w-full"
           variants={fadeInUpVariants}
-          whileHover={{ 
+          whileHover={{
             scale: 1.01,
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-            transition: { duration: 0.3 }
+            boxShadow:
+              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transition: { duration: 0.3 },
           }}
         >
-          <motion.p 
+          <motion.p
             className="text-xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.2
+              delay: 0.2,
             }}
           >
             Not up for a meeting yet? Just get in touch with a message only:
@@ -474,41 +595,41 @@ const Faq = () => {
               visible: {
                 transition: {
                   staggerChildren: 0.1,
-                  delayChildren: 0.4
-                }
-              }
+                  delayChildren: 0.4,
+                },
+              },
             }}
           >
             {[
               { type: "text", placeholder: "Your Name" },
               { type: "email", placeholder: "Your Email" },
               { type: "text", placeholder: "Subject" },
-              { type: "textarea", placeholder: "Your Query", rows: 4 }
+              { type: "textarea", placeholder: "Your Query", rows: 4 },
             ].map((field, index) => (
               <motion.div
                 key={index}
                 variants={{
-                  hidden: { 
-                    opacity: 0, 
+                  hidden: {
+                    opacity: 0,
                     y: 20,
-                    scale: 0.95
+                    scale: 0.95,
                   },
-                  visible: { 
-                    opacity: 1, 
+                  visible: {
+                    opacity: 1,
                     y: 0,
                     scale: 1,
-                    transition: { 
-                      duration: 0.5, 
+                    transition: {
+                      duration: 0.5,
                       ease: [0.25, 0.46, 0.45, 0.94],
                       type: "spring",
                       stiffness: 120,
-                      damping: 15
-                    } 
-                  }
+                      damping: 15,
+                    },
+                  },
                 }}
-                whileFocus={{ 
+                whileFocus={{
                   scale: 1.02,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
               >
                 {field.type === "textarea" ? (
@@ -533,47 +654,47 @@ const Faq = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.8
+              delay: 0.8,
             }}
           >
-            <motion.button 
+            <motion.button
               className="w-full bg-[var(--primary-color)] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 cursor-pointer relative overflow-hidden"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 ease: [0.25, 0.46, 0.45, 0.94],
-                delay: 1.0
+                delay: 1.0,
               }}
             >
               <motion.span
                 className="relative z-10"
-                whileHover={{ 
+                whileHover={{
                   y: -2,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
               >
                 Send
               </motion.span>
             </motion.button>
-            <motion.span 
+            <motion.span
               className="mt-2 text-xs text-gray-700 block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 1.2
+              transition={{
+                duration: 0.5,
+                delay: 1.2,
               }}
             >
               We will contact you after you query submission.
@@ -587,33 +708,33 @@ const Faq = () => {
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ 
-          duration: 1.0, 
+        transition={{
+          duration: 1.0,
           ease: [0.25, 0.46, 0.45, 0.94],
           type: "spring",
           stiffness: 80,
           damping: 20,
-          delay: 0.2
+          delay: 0.2,
         }}
       >
-        <motion.p 
+        <motion.p
           className="text-xl font-semibold text-center"
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ 
-            duration: 0.8, 
+          transition={{
+            duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94],
             type: "spring",
             stiffness: 100,
             damping: 15,
-            delay: 0.4
+            delay: 0.4,
           }}
         >
           Frequently Asked Questions
         </motion.p>
 
-        <motion.div 
+        <motion.div
           className="flex flex-col gap-4 mt-8"
           initial="hidden"
           whileInView="visible"
@@ -623,9 +744,9 @@ const Faq = () => {
             visible: {
               transition: {
                 staggerChildren: 0.08,
-                delayChildren: 0.6
-              }
-            }
+                delayChildren: 0.6,
+              },
+            },
           }}
         >
           {faqs.map((faq, index) => (
@@ -633,61 +754,65 @@ const Faq = () => {
               key={index}
               className="cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden group"
               variants={faqItemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -2,
-                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: { 
+                boxShadow:
+                  "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: {
                   duration: 0.3,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                },
               }}
               whileTap={{ scale: 0.98 }}
             >
               <motion.div
                 className="flex justify-between items-center py-4 px-6 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 transition-all duration-300"
                 onClick={() => toggleFAQ(index)}
-                whileHover={{ 
+                whileHover={{
                   backgroundColor: "rgba(0, 0, 0, 0.02)",
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
               >
-                <motion.p 
+                <motion.p
                   className="text-lg font-medium pr-4"
-                  whileHover={{ 
+                  whileHover={{
                     x: 5,
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.2 },
                   }}
                 >
                   {faq.question}
                 </motion.p>
                 <motion.div
                   className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[var(--primary-color)] group-hover:bg-opacity-10 transition-colors duration-300"
-                  animate={{ 
+                  animate={{
                     rotate: openIndex === index ? 45 : 0,
                     scale: openIndex === index ? 1.2 : 1,
-                    backgroundColor: openIndex === index ? "rgba(var(--primary-color), 0.1)" : "rgba(0, 0, 0, 0.05)"
+                    backgroundColor:
+                      openIndex === index
+                        ? "rgba(var(--primary-color), 0.1)"
+                        : "rgba(0, 0, 0, 0.05)",
                   }}
-                  transition={{ 
-                    duration: 0.4, 
+                  transition={{
+                    duration: 0.4,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     type: "spring",
                     stiffness: 200,
-                    damping: 20
+                    damping: 20,
                   }}
                   whileHover={{
                     scale: 1.1,
                     rotate: openIndex === index ? 45 : 15,
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.2 },
                   }}
                 >
                   {openIndex === index ? (
                     <motion.div
                       initial={{ scale: 0, rotate: -90 }}
                       animate={{ scale: 1, rotate: 0 }}
-                      transition={{ 
+                      transition={{
                         duration: 0.3,
-                        ease: [0.25, 0.46, 0.45, 0.94]
+                        ease: [0.25, 0.46, 0.45, 0.94],
                       }}
                     >
                       <FiMinus className="w-5 h-5 text-[var(--primary-color)]" />
@@ -696,9 +821,9 @@ const Faq = () => {
                     <motion.div
                       initial={{ scale: 0, rotate: 90 }}
                       animate={{ scale: 1, rotate: 0 }}
-                      transition={{ 
+                      transition={{
                         duration: 0.3,
-                        ease: [0.25, 0.46, 0.45, 0.94]
+                        ease: [0.25, 0.46, 0.45, 0.94],
                       }}
                     >
                       <FiPlus className="w-5 h-5 text-[var(--primary-color)]" />
@@ -711,40 +836,40 @@ const Faq = () => {
                 initial={false}
                 animate={{
                   height: openIndex === index ? "auto" : 0,
-                  opacity: openIndex === index ? 1 : 0
+                  opacity: openIndex === index ? 1 : 0,
                 }}
-                transition={{ 
-                  duration: 0.5, 
+                transition={{
+                  duration: 0.5,
                   ease: [0.25, 0.46, 0.45, 0.94],
                   type: "spring",
                   stiffness: 100,
-                  damping: 20
+                  damping: 20,
                 }}
                 className="overflow-hidden"
               >
                 <motion.div
                   className="px-6 pb-4"
                   initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                  animate={{ 
+                  animate={{
                     opacity: openIndex === index ? 1 : 0,
                     y: openIndex === index ? 0 : -20,
-                    scale: openIndex === index ? 1 : 0.95
+                    scale: openIndex === index ? 1 : 0.95,
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 0.4,
                     delay: openIndex === index ? 0.1 : 0,
-                    ease: [0.25, 0.46, 0.45, 0.94]
+                    ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
                   <motion.p
                     className="text-gray-700 leading-relaxed"
                     initial={{ opacity: 0 }}
-                    animate={{ 
-                      opacity: openIndex === index ? 1 : 0
+                    animate={{
+                      opacity: openIndex === index ? 1 : 0,
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 0.3,
-                      delay: openIndex === index ? 0.2 : 0
+                      delay: openIndex === index ? 0.2 : 0,
                     }}
                   >
                     {faq.answer}

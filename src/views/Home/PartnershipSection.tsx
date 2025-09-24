@@ -37,7 +37,7 @@ const PartnershipSection = () => {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={150}
+                width={180}
                 height={100}
                 priority
                 className="object-contain"

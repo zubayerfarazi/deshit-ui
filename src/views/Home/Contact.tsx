@@ -33,7 +33,7 @@ const Contact = () => {
           Let's Make Things Happen!
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-6 justify-items-center items-center">
+        <div className="grid md:grid-cols-2 gap-8 mt-6 justify-items-start items-start">
           <motion.div className="flex flex-col gap-6" variants={itemVariants}>
             <motion.div variants={itemVariants}>
               <Image
@@ -52,7 +52,7 @@ const Contact = () => {
               "Do not suffer novices, hire a skilled team"
             </motion.p>
 
-            <motion.div className="flex items-center gap-4 mt-4" variants={itemVariants}>
+            <motion.div className="flex items-center gap-4" variants={itemVariants}>
               <Image
                 src="/contact-default.png"
                 alt="contact default"
@@ -62,7 +62,7 @@ const Contact = () => {
               />
               <div className="flex flex-col text-white">
                 <p>Sajib</p>
-                <p>COO, DeshIt-BD</p>
+                <p className="text-gray-500">COO, DeshIt-BD</p>
               </div>
             </motion.div>
           </motion.div>

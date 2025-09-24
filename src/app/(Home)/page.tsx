@@ -15,13 +15,14 @@ import Portfolio from "@/views/Home/Portfolio";
 import Contact from "@/views/Home/Contact";
 import Blog from "@/views/Home/Blog";
 import Navbar from "@/component/layout/Navbar";
+import Footer from "@/component/layout/Footer";
 
 const sectionClass = "container max-w-screen-xl mx-auto sm:px-4";
 
 const page = () => {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className={sectionClass}>
         <HeroSection />
       </div>
@@ -61,6 +62,8 @@ const page = () => {
       </div>
 
       <Contact />
+
+      <Footer />
     </>
   );
 };

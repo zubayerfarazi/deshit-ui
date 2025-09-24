@@ -7,10 +7,10 @@ import Button from "@/component/ui/Button";
 
 const Portfolio = () => {
   const projects = [
-    { src: "/project-1.png", width: 150, height: 100 },
-    { src: "/project-2.png", width: 160, height: 100 },
-    { src: "/project-3.png", width: 160, height: 100 },
-    { src: "/project-4.png", width: 150, height: 100 },
+    { src: "/project-1.png"},
+    { src: "/project-2.png"},
+    { src: "/project-3.png"},
+    { src: "/project-4.png"},
   ];
 
   const containerVariants: Variants = {
@@ -55,8 +55,8 @@ const Portfolio = () => {
             <Image
               src={project.src}
               alt="project"
-              width={project.width}
-              height={project.height}
+              width={180}
+              height={100}
               className="rounded-md"
             />
           </motion.div>

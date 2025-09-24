@@ -7,10 +7,10 @@ const Testimonial = () => {
   return (
     <div className="py-20 px-4 sm:px-0">
       <div className="flex items-center justify-center">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Heading */}
           <motion.p
-            className="text-4xl font-bold mb-8"
+            className="text-4xl font-bold mb-8 text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}

@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <footer className="mt-10 container max-w-screen-xl mx-auto px-4 py-4">
       {/* Top Section */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-20">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-20">
         {/* Left Info */}
         <div className="flex-1 space-y-4">
           <p className="font-semibold text-md">
@@ -123,7 +123,7 @@ const Footer = () => {
       </div>
 
       {/* Social Icons */}
-      <div className="flex flex-wrap items-center gap-4 mt-8 text-black">
+      <div className="flex flex-wrap items-center gap-4 mt-2 text-black">
         <FaFacebookF className="hover:text-[var(--primary-color)] cursor-pointer" />
         <FaTwitter className="hover:text-[var(--primary-color)] cursor-pointer" />
         <FaYoutube className="hover:text-[var(--primary-color)] cursor-pointer" />
@@ -134,7 +134,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="py-4 mt-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-20">
           <p>© 2025 DeshiT-BD.ltd</p>
           <div className="flex gap-1 items-center">
             <Link href="#" className="text-[var(--primary-color)]">

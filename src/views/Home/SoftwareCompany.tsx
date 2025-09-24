@@ -47,7 +47,7 @@ const SoftwareCompany = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <Image src={src} alt={`logo-${index + 1}`} width={150} height={100} />
+            <Image src={src} alt={`logo-${index + 1}`} width={180} height={100} />
           </motion.div>
         ))}
       </motion.div>
