@@ -32,19 +32,16 @@ const tabContent: Record<Tab, { id: number; name: string; image: string }[]> = {
   CMS: [],
 };
 
-// Animation variants
-const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } },
+  exit: { opacity: 0, y: -20 },
 };
 
-const itemVariants: Variants = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 20 },
-  },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
 };
 
 const SoftwareTechnology = () => {
@@ -84,11 +81,12 @@ const SoftwareTechnology = () => {
 
       {/* Tab Content */}
       <motion.div
+         key={activeTab}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center items-center p-4 bg-white border-l border-r border-b border-gray-300 mt-4"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        animate="visible"
+        exit="exit"
       >
         {tabContent[activeTab] && tabContent[activeTab].length > 0 ? (
           tabContent[activeTab].map((item) => (

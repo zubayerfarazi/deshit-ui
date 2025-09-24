@@ -340,28 +340,6 @@ const containerVariants: Variants = {
   },
 };
 
-const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.95,
-    rotateX: -15,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    rotateX: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
 const fadeInUpVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -398,28 +376,6 @@ const slideInVariants: Variants = {
       type: "spring",
       stiffness: 120,
       damping: 18,
-    },
-  },
-};
-
-const faqItemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    scale: 0.9,
-    rotateX: -10,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    rotateX: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-      type: "spring",
-      stiffness: 150,
-      damping: 20,
     },
   },
 };
@@ -705,180 +661,43 @@ const Faq = () => {
 
       <motion.div
         className="mt-20"
-        initial={{ opacity: 0, y: 60, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{
-          duration: 1.0,
-          ease: [0.25, 0.46, 0.45, 0.94],
-          type: "spring",
-          stiffness: 80,
-          damping: 20,
-          delay: 0.2,
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.05,
+            },
+          },
         }}
       >
-        <motion.p
-          className="text-xl font-semibold text-center"
-          initial={{ opacity: 0, scale: 0.8, y: 30 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            type: "spring",
-            stiffness: 100,
-            damping: 15,
-            delay: 0.4,
-          }}
-        >
+        <p className="text-xl font-semibold text-center">
           Frequently Asked Questions
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="flex flex-col gap-4 mt-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.08,
-                delayChildren: 0.6,
-              },
-            },
-          }}
-        >
+        <div className="flex flex-col gap-4 mt-8">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden group"
-              variants={faqItemVariants}
-              whileHover={{
-                scale: 1.02,
-                y: -2,
-                boxShadow:
-                  "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: {
-                  duration: 0.3,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                },
-              }}
-              whileTap={{ scale: 0.98 }}
+              className="cursor-pointer bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+              onClick={() => toggleFAQ(index)}
             >
-              <motion.div
-                className="flex justify-between items-center py-4 px-6 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 transition-all duration-300"
-                onClick={() => toggleFAQ(index)}
-                whileHover={{
-                  backgroundColor: "rgba(0, 0, 0, 0.02)",
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <motion.p
-                  className="text-lg font-medium pr-4"
-                  whileHover={{
-                    x: 5,
-                    transition: { duration: 0.2 },
-                  }}
-                >
-                  {faq.question}
-                </motion.p>
-                <motion.div
-                  className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 group-hover:bg-[var(--primary-color)] group-hover:bg-opacity-10 transition-colors duration-300"
-                  animate={{
-                    rotate: openIndex === index ? 45 : 0,
-                    scale: openIndex === index ? 1.2 : 1,
-                    backgroundColor:
-                      openIndex === index
-                        ? "rgba(var(--primary-color), 0.1)"
-                        : "rgba(0, 0, 0, 0.05)",
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 20,
-                  }}
-                  whileHover={{
-                    scale: 1.1,
-                    rotate: openIndex === index ? 45 : 15,
-                    transition: { duration: 0.2 },
-                  }}
-                >
-                  {openIndex === index ? (
-                    <motion.div
-                      initial={{ scale: 0, rotate: -90 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        ease: [0.25, 0.46, 0.45, 0.94],
-                      }}
-                    >
-                      <FiMinus className="w-5 h-5 text-[var(--primary-color)]" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      initial={{ scale: 0, rotate: 90 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        ease: [0.25, 0.46, 0.45, 0.94],
-                      }}
-                    >
-                      <FiPlus className="w-5 h-5 text-[var(--primary-color)]" />
-                    </motion.div>
-                  )}
-                </motion.div>
-              </motion.div>
-
-              <motion.div
-                initial={false}
-                animate={{
-                  height: openIndex === index ? "auto" : 0,
-                  opacity: openIndex === index ? 1 : 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 20,
-                }}
-                className="overflow-hidden"
-              >
-                <motion.div
-                  className="px-6 pb-4"
-                  initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                  animate={{
-                    opacity: openIndex === index ? 1 : 0,
-                    y: openIndex === index ? 0 : -20,
-                    scale: openIndex === index ? 1 : 0.95,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    delay: openIndex === index ? 0.1 : 0,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
-                >
-                  <motion.p
-                    className="text-gray-700 leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: openIndex === index ? 1 : 0,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      delay: openIndex === index ? 0.2 : 0,
-                    }}
-                  >
-                    {faq.answer}
-                  </motion.p>
-                </motion.div>
-              </motion.div>
+              <div className="flex justify-between items-center py-4 px-6 bg-gray-50">
+                <p className="text-lg font-medium">{faq.question}</p>
+                <span className="text-[var(--primary-color)] text-xl">
+                  {openIndex === index ? <FiMinus /> : <FiPlus />}
+                </span>
+              </div>
+              {openIndex === index && (
+                <div className="px-6 pb-4">
+                  <p className="text-gray-700">{faq.answer}</p>
+                </div>
+              )}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   );

@@ -28,7 +28,7 @@ const ServiceNavbar = () => {
     "after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[3px] after:w-20 after:bg-[var(--primary-color)] after:scale-x-0 after:origin-center after:transition-all after:duration-300 group-hover:after:scale-x-100 after:rounded-full after:-translate-x-1/2";
 
   return (
-    <div className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+    <div className="bg-white/95">
       <div className="container max-w-screen-xl mx-auto px-4 py-3">
         <nav className="flex items-center justify-between">
           {/* Logo */}
